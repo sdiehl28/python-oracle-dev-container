@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  db:
+    image: store/oracle/database-enterprise:12.2.0.1-slim
+    container_name: "oracle_12c_server"
+    restart: always
+    volumes:
+      - oracle_db:/ORCL
+    ports:
+      - "1521:1521"
+
+  oracle_dev:
+    image: oracle_dev
+    container_name: "oracle_dev"
+    restart: always
+    depends_on:
+      - "db"
+    volumes:
+      - oracle_projects:/home/dev/projects
+
+volumes:
+  oracle_db:
+    name: oracle_db
+  oracle_projects:
+    name: oracle_projects

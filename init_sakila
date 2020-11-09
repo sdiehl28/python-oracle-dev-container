@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo exit | sqlplus sys/Oradoc_db1@db/ORCLPDB1.localdomain as sysdba @create_user
+
+echo exit | sqlplus sakila/sakila@db/ORCLPDB1.localdomain @oracle-sakila-db/oracle-sakila-schema.sql
+echo exit | sqlplus sakila/sakila@db/ORCLPDB1.localdomain @oracle-sakila-db/oracle-sakila-insert-data.sql
