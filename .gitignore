@@ -1,5 +1,4 @@
 tmp*
 wait-for-it.sh
-Dockerfile
 .dockerignore
 .vscode
